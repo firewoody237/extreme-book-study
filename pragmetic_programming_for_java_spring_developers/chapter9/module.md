@@ -23,7 +23,8 @@
 ### 캡슐화 실패 사례
 #### java.util.Date 클래스
 - 설계 초기에 캡슐화를 고려하지 않고 내부 필드를 우회적으로 조작할 수 있는 public setter를 메서드로 제공함
-  ![date-public-setter](images/date_public_settter.png)
+
+![date-public-setter](images/date_public_settter.png)
 
 #### sun.* 패키지
 - 내부 전용 API 였지만, 일부 라이브러리와 애플리케이션이 직접 참조하게 되면서 Public API 처럼 사용됨
