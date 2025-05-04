@@ -112,15 +112,14 @@ public class DiceGameV3 {
 ### 반환값을 위한 DTO로 결과를 반환하는 주사위 게임 코드
 ```java
 public class DiceGameV4 {
-    public GameResult play(Dice dice, int threshold) {
-        ArrayList<String> results = new ArrayList<>();
-        int rollResult = dice.roll();
-        if (rollResult > threshold) {
-            return new GameResult(String.valueOf(rollResult), "당신이 이겼습니다.");
-        } else {
-            return new GameResult(String.valueOf(rollResult), "당신이 졌습니다.");
-        }
+  public GameResult play(Dice dice, int threshold) {
+    int rollResult = dice.roll();
+    if (rollResult > threshold) {
+      return new GameResult(String.valueOf(rollResult), "당신이 이겼습니다.");
+    } else {
+      return new GameResult(String.valueOf(rollResult), "당신이 졌습니다.");
     }
+  }
 }
 ``` 
 
@@ -159,13 +158,9 @@ public class DiceGameV5 {
   - 해당 메서드의 코드를 다른 객체에 할당하고 그 메서드를 public으로 선언
 3. 너무 많은 객체 주입
   - 서비스 컴포넌트 단위를 더 작게 나눠야할 시점임
-3. 테스트 코드 커버리지 100%를 위한 많은 테스트 코드 필요
+4. 메서드 테스트 코드 커버리지 100%를 위한 많은 테스트 코드 필요
   - 긴 코드로 인해 테스트 케이스가 너무 많아짐
-    - 해당 메서드에 책임이 너무 많은 것임
-  - 테스트 코드 커버리지 100%가 중요한게 아님
-  - 핵심은 시스템의 품질을 보장하고 개선하기 위함임
-    - 테스트가 책임을 제대로 수행하고 검증하고 있는지 확인해라
-
+  - 해당 메서드에 책임이 너무 많은 것임
 ### 이런 신호가 감지된다면?
 - 설계가 잘못됐을 확률이 높다.
 - 좋은 설계로 변경해야한다.
@@ -174,7 +169,10 @@ public class DiceGameV5 {
 - 코드 사용자의 입장에서 바라볼 수 있음
 - 요구사항 위주로 바라볼 수 있음
 
-### 테스트 프레임워크의 오해
+### 테스트의 오해
+- 테스트 코드 커버리지 100%가 중요한게 아님
+  - 핵심은 시스템의 품질을 보장하고 개선하기 위함임
+  - 테스트가 책임을 제대로 수행하고 검증하고 있는지 확인해라
 - 테스트 프레임워크가 있어야지만 테스트할 수 있는 것이 아니다.
 - 테스트 공부는 프레임워크 공부가 아니다.
 

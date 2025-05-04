@@ -5,7 +5,6 @@ import java.util.List;
 
 public class DiceGameV4 {
     public GameResult play(Dice dice, int threshold) {
-        ArrayList<String> results = new ArrayList<>();
         int rollResult = dice.roll();
         if (rollResult > threshold) {
             return new GameResult(String.valueOf(rollResult), "당신이 이겼습니다.");
